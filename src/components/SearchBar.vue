@@ -64,6 +64,7 @@ export default {
   border-radius: 0px 20px 20px 0px;
 }
 .ip-icon:hover {
-  background: hsl(0, 0%, 29%);
-}
+button:hover {
+  cursor: pointer;
+  opacity: 0.8;
 </style>
