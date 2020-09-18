@@ -6,16 +6,15 @@
         class="ip-input"
         type="text"
         placeholder="Search for any IP address or domain"
+        v-model="domainInput" @keyup.enter="searchDomain"
       />
-      <img src="../assets/icon-arrow.svg" alt class="ip-icon" />
+      <button type="submit" @click.prevent="searchDomain"></button>
     </form>
   </div>
 </template>
 
 
 <script>
-
-
 export default {
   name: "SearchBar",
   props: {},
@@ -65,15 +64,18 @@ export default {
 .ip-input::placeholder {
   font-size: 20px;
 }
-.ip-icon {
-  padding: 25px;
-  background: hsl(0, 0%, 17%);
-  color: hsl(0, 0%, 59%);
-  text-align: center;
+button {
+  background-image: url("../assets/icon-arrow.svg");
+  background-color: hsl(0, 0%, 17%);
+  background-repeat: no-repeat;
+  background-position: center;
+  outline: none;
+  border: none;
   border-radius: 0px 20px 20px 0px;
+  padding: 33px;
 }
-.ip-icon:hover {
 button:hover {
   cursor: pointer;
   opacity: 0.8;
+}
 </style>
