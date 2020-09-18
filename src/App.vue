@@ -23,13 +23,22 @@ export default {
       ispData: "",
     };
   },
-  mounted: function () {
-    fetch(url)
-      .then((response) => response.json())
-      .then((responseData) => {
-        this.locationData = responseData.location;
-        this.ipData = responseData.ip;
-        this.ispData = responseData.isp;
+  mounted: function() {
+    this.getData()
+  },
+  methods: {
+    domainNameCall(payload) {
+      this.domainInput = payload;
+      this.getData();
+    },
+    getData() {
+      const url = `https://geo.ipify.org/api/v1?apiKey=${apiKey}&domain=${this.domainInput}`;
+      fetch(url)
+        .then((response) => response.json())
+        .then((responseData) => {
+          this.locationData = responseData.location;
+          this.ipData = responseData.ip;
+          this.ispData = responseData.isp;
 
         console.log(responseData);
       });
