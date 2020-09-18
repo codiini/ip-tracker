@@ -4,24 +4,23 @@
       <ul class="list-container">
         <li class="list-item">
           <p>ip address</p>
-          <h2 id="ip-address-result">192.212.174.101</h2>
+          <h2 id="ip-address-result">{{ipData}}</h2>
         </li>
         <hr>
         <li class="list-item">
           <p>location</p>
-          <h2 class="location-result">Brooklyn, NY 10001</h2>
+          <h2 class="location-result">{{locationData.city}},{{locationData.region}}</h2>
         </li>
         <hr>
         <li class="list-item">
           <p>timezone</p>
-          <h2 class="time-zone-result">UTC -05:00</h2>
+          <h2 class="time-zone-result">UTC {{locationData.timezone}}</h2>
         </li>
         <hr>
         <li class="list-item">
           <p>isp</p>
           <h2 class="isp-result">
-            SpaceX
-            Starlink
+            {{ispData}}
           </h2>
         </li>
       </ul>
@@ -32,7 +31,7 @@
 <script>
 export default {
   name: "InfoBoard",
-  props: {},
+  props: ["locationData","ipData","ispData"],
 };
 </script>
 
@@ -65,7 +64,7 @@ p {
   text-transform: uppercase;
 }
 .list-item {
-  margin: 30px 50px;
+  margin: 30px;
 }
 .list-item p {
   margin-bottom: 10px;
@@ -73,5 +72,7 @@ p {
 hr{
   width:1px;
   height:70px;
+  position:relative;
+  top:15px;
 }
 </style>
