@@ -1,10 +1,7 @@
 <template>
   <div id="app">
-    <div>
-      {{data}}
-    </div>
     <SearchBar />
-    <InfoBoard></InfoBoard>
+    <InfoBoard :locationData="locationData" :ipData="ipData" :ispData="ispData" />
   </div>
 </template>
 
@@ -19,11 +16,22 @@ export default {
     SearchBar,
     InfoBoard,
   },
-  mounted() {
+  data() {
+    return {
+      locationData: {},
+      ipData: "",
+      ispData: "",
+    };
+  },
+  mounted: function () {
     fetch(url)
       .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
+      .then((responseData) => {
+        this.locationData = responseData.location;
+        this.ipData = responseData.ip;
+        this.ispData = responseData.isp;
+
+        console.log(responseData);
       });
   },
 };
