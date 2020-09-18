@@ -19,7 +19,16 @@
 export default {
   name: "SearchBar",
   props: {},
- 
+  data() {
+    return {
+      domainInput: "",
+    };
+  },
+  methods: {
+    searchDomain() {
+      this.$emit("domainData", this.domainInput);
+    },
+  },
 };
 </script>
 
