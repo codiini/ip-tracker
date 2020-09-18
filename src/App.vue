@@ -1,7 +1,11 @@
 <template>
   <div id="app">
-    <SearchBar />
-    <InfoBoard :locationData="locationData" :ipData="ipData" :ispData="ispData" />
+    <SearchBar @domainData="domainNameCall" />
+    <InfoBoard
+      :locationData="locationData"
+      :ipData="ipData"
+      :ispData="ispData"
+    />
   </div>
 </template>
 
@@ -9,7 +13,6 @@
 import SearchBar from "./components/SearchBar";
 import InfoBoard from "./components/InfoBoard";
 const apiKey = process.env.VUE_APP_API;
-const url = `https://geo.ipify.org/api/v1?apiKey=${apiKey}`;
 export default {
   name: "App",
   components: {
@@ -18,6 +21,7 @@ export default {
   },
   data() {
     return {
+      domainInput: "",
       locationData: {},
       ipData: "",
       ispData: "",
@@ -39,9 +43,8 @@ export default {
           this.locationData = responseData.location;
           this.ipData = responseData.ip;
           this.ispData = responseData.isp;
-
-        console.log(responseData);
-      });
+        });
+    },
   },
 };
 </script>
