@@ -8,7 +8,17 @@ export default {
   data() {
     return {};
   },
-  mounted() {},
+  mounted() {
+    this.loadMap();
+  },
+  watch: {
+    longitude() {
+      this.loadMap();
+    },
+    latitude() {
+      this.loadMap();
+    },
+  },
   methods: {
     loadMap() {
       let mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
