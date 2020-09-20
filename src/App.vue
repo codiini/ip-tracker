@@ -1,23 +1,22 @@
 <template>
   <div id="app">
     <SearchBar @domainData="domainNameCall" />
-    <InfoBoard
-      :locationData="locationData"
-      :ipData="ipData"
-      :ispData="ispData"
-    />
+    <InfoBoard :locationData="locationData" :ipData="ipData" :ispData="ispData" />
+    <Map :locationData="locationData" />
   </div>
 </template>
 
 <script>
 import SearchBar from "./components/SearchBar";
 import InfoBoard from "./components/InfoBoard";
+import Map from "./components/Map";
 const apiKey = process.env.VUE_APP_API;
 export default {
   name: "App",
   components: {
     SearchBar,
     InfoBoard,
+    Map,
   },
   data() {
     return {
@@ -25,10 +24,12 @@ export default {
       locationData: {},
       ipData: "",
       ispData: "",
+      longitude: "",
+      latitude: "",
     };
   },
-  mounted: function() {
-    this.getData()
+  mounted: function () {
+    this.getData();
   },
   methods: {
     domainNameCall(payload) {
