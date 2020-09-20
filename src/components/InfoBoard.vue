@@ -46,6 +46,7 @@ export default {
 .main {
   position: absolute;
   top: -50px;
+  z-index: 100;
   background: #fff;
   width: 75%;
   border-radius: 10px;
