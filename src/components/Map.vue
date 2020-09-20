@@ -5,6 +5,7 @@
 <script>
 export default {
   name: "Map",
+  props: ["longitude", "latitude"],
   data() {
     return {};
   },
