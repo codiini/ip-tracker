@@ -28,7 +28,7 @@ export default {
       let map = new mapboxgl.Map({
         container: "map",
         style: "mapbox://styles/mapbox/streets-v11",
-        center: [this.locationData.lng, this.locationData.lat],
+        center: [this.longitude, this.latitude],
         zoom: 5,
       });
       map.addControl(new mapboxgl.NavigationControl());
