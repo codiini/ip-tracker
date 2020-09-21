@@ -2,7 +2,7 @@
   <div id="app">
     <SearchBar @domainData="domainNameCall" />
     <InfoBoard :locationData="locationData" :ipData="ipData" :ispData="ispData" />
-    <Map :locationData="locationData" />
+    <Map :longitude="longitude" :latitude="latitude" />
   </div>
 </template>
 
@@ -24,8 +24,8 @@ export default {
       locationData: {},
       ipData: "",
       ispData: "",
-      longitude: "",
-      latitude: "",
+      longitude:"",
+      latitude:"",
     };
   },
   mounted: function () {
@@ -42,6 +42,8 @@ export default {
         .then((response) => response.json())
         .then((responseData) => {
           this.locationData = responseData.location;
+          this.latitude = responseData.location.lat;
+          this.longitude = responseData.location.lng;
           this.ipData = responseData.ip;
           this.ispData = responseData.isp;
         });
