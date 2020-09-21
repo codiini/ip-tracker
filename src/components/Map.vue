@@ -9,9 +9,11 @@ export default {
   data() {
     return {};
   },
+  // MOunted lifecycle to load the map upon page load
   mounted() {
     this.loadMap();
   },
+  // watch props for any change in value and the calls map function
   watch: {
     longitude() {
       this.loadMap();
@@ -32,6 +34,29 @@ export default {
         zoom: 5,
       });
       map.addControl(new mapboxgl.NavigationControl());
+
+      let geojson = {
+        type: "FeatureCollection",
+        features: [
+          {
+            type: "Feature",
+            properties: {
+              message: "Foo",
+              iconSize: [60, 60],
+            },
+            geometry: {
+              type: "Point",
+              coordinates: [this.longitude, this.latitude],
+            },
+          },
+        ],
+      };
+// This loops through the features array in the geojson object to create a marker for each feature
+      geojson.features.forEach(function (marker) {
+        new mapboxgl.Marker()
+          .setLngLat(marker.geometry.coordinates)
+          .addTo(map);
+      });
     },
   },
 };
