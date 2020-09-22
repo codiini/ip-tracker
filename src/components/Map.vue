@@ -26,7 +26,7 @@ export default {
     loadMap() {
       let mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
       mapboxgl.accessToken =
-        "pk.eyJ1IjoiaW5pdWJvbmciLCJhIjoiY2tmOW9mYTF0MGhkZzJ5b2Y0ZDBqMGhhbyJ9.Y7n1D7Gde0TMqwHsAr0Kng";
+        process.env.VUE_APP_MAP;
       let map = new mapboxgl.Map({
         container: "map",
         style: "mapbox://styles/mapbox/streets-v11",
