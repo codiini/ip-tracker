@@ -10,7 +10,7 @@
 import SearchBar from "./components/SearchBar";
 import InfoBoard from "./components/InfoBoard";
 import Map from "./components/Map";
-const apiKey = process.env.VUE_APP_API;
+const apiKey = process.env.VUE_APP_IP_API;
 export default {
   name: "App",
   components: {
