@@ -35,7 +35,7 @@ export default {
 .container {
   display: grid;
   place-items: center;
-  height: 30vh;
+  height: 50vh;
   background: url(../assets/pattern-bg.png);
   padding-bottom: 220px;
   padding-top: 50px;
@@ -48,12 +48,12 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 60%;
 }
 .ip-input {
   font-size: 20px;
   padding: 20px;
-  width: 40%;
+  width: 100%;
   outline: none;
   border: none;
   border-radius: 20px 0px 0px 20px;
@@ -62,7 +62,7 @@ export default {
   outline: 1px solid purple;
 }
 .ip-input::placeholder {
-  font-size: 20px;
+  font-size: 15px;
 }
 button {
   background-image: url("../assets/icon-arrow.svg");
@@ -77,5 +77,14 @@ button {
 button:hover {
   cursor: pointer;
   opacity: 0.8;
+}
+/* Media Queries */
+
+/* Mobile styling */
+@media only screen and(max-width:70px){
+.ip-input{
+  width:0;
+}
+
 }
 </style>
