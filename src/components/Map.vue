@@ -67,6 +67,12 @@ export default {
   position: relative;
   z-index: 1;
   height: 61vh;
-  width: 100vw;
+  width: 100%;
+}
+@media only screen and(max-width:70px){
+#map{
+  width:40vh;
+}
+
 }
 </style>
